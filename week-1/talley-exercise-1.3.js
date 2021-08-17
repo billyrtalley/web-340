@@ -15,10 +15,15 @@ Crutchfield, Constance. Commonjs...what, what and how. October 21, 2018.
 url: https://medium.com/@cgcrutch18/commonjs-what-why-and-how-64ed9f31aa46
 */
 
-var url = require('url');
+var url = require('url'); //requires the url module and puts it in the variable url
+//(Hahn. 2016)
 
 var parsedURL = url.parse('https://www.example.com/profile?name=talley');
+//takes the url string, parses it and returns a URL object (VS Code. 2021)
 
-console.log(parsedURL.protocol);
+console.log(parsedURL.protocol); 
+//parses the protocol  https: (Hahn. 2016)
 console.log(parsedURL.host);
+//parses the host www.example.com. (Hahn. 2016)
 console.log(parsedURL.query);
+//parses the query profile?name=talley
