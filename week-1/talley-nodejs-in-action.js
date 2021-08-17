@@ -23,7 +23,7 @@ function processRequest(req, res) {
         'Content-Length': contentLength,
         'Content-Type': 'text/plain',
     });
-//all is OK and the gives the obect with the response headers (W3Schools. n.d.)
+//all is OK and the gives the object with the response headers (W3Schools. n.d.)
     res.end(body); 
 //
 }
