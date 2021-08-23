@@ -1,0 +1,55 @@
+<!-- ============================================
+; Title: Bootstrap Examples
+; Author: W3Schools
+; URL: https://www.w3schools.com/bootstrap/bootstrap_examples.asp 
+; Date Created: Unknown
+; Date Modified: 22 August 2021
+; Modified By: William Talley
+; Description: Bootstrap example of setting up a table
+;===========================================
+*/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB340 Week 2 Exercise 2.4</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Aloha. Welcome to <%= firstName %> <%=lastName %>'s webpage.</h1>
+        <p>Here is a list of some of my favorite Movies</p>            
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Director</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Zodiac</td>
+              <td>David Fincher</td>
+            </tr>
+            <tr>
+              <td>Silence of the Lambs</td>
+              <td>Jonathan Demme</td>
+            </tr>
+            <tr>
+              <td>Pulp Fiction</td>
+              <td>Quentin Tarantino</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+</body>
+
+</html>

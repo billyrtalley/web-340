@@ -1,0 +1,9 @@
+{
+    "name": "ejs-views",
+    "author": "William Talley",
+    "private": true,
+    "dependencies": {
+        "ejs": "^3.1.6",
+        "express": "^4.17.1"
+    }
+}
