@@ -1,0 +1,48 @@
+<!-- /*
+============================================
+; Title: Exercise 3.3 Advanced Routing
+; Author: Professor Krasso 
+; Date Modified: 29 August 2021
+; Modified By: William Talley
+; Description: Exercise is to learn 
+;how to pass values to a route, how to accept the values, 
+; and output them to an HTML or EJS page.
+; This ejs file is the client side page
+;===========================================
+*/  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB340 Week 3 Exercise 3.3</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item-active">
+                <a href="#" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+    
+    
+    <div class="container" role="main">
+    <br><br>
+    Product ID: <%= productId %>
+    <!-- this should show our productID from our params parseInt function inside this div -->
+    </div>
+
+</body>
+</html>
