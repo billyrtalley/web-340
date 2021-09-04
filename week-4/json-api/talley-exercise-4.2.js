@@ -13,7 +13,7 @@
 var express = require('express');
 var http = require('http');
 var logger = require('morgan');
-//declaration: require statements for libraries: express, morgan, http and path
+//declaration: require statements for libraries: express, morgan, http
 
 var app = express();
 // assignment: variable app assigned to express
