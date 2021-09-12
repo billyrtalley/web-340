@@ -1,0 +1,58 @@
+<!--/*
+============================================
+; Title: Exercise 5.2 EJS Templates
+; Author: Professor Krasso 
+; Date Modified: 12 September 2021
+; Modified By: William Talley
+; Description: Exercise is to learn 
+;and practice using if/else statements in EJS view templates.
+; don't forget to close your end tags ( %>)
+;===========================================
+*/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WEB340 Exercise 5.2- If...Else...Render</title>
+    <!--Bootstrap Stylesheet-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!--Nav bar isn't mandatory; just for practice using Bootstrap; imported the CDN for Bootstrap-->   
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item-active">
+                <a href="#" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <br /><br />
+
+        <h2>Composers</h2>
+
+<!--If check to see if the length of the array of composers is greater than zero
+if so, we will iterate over the names and output the results-->
+        <% if(names.length > 0) { %>
+            <% for (var k = 0; k < names.length; k++) { %>
+                <div class="alert alert-success"><strong><%= names[k] %></strong></div>
+            <% } %>
+        <% } %>
+
+    </div>
+
+
+</body>
+
+</html>

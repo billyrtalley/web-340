@@ -1,0 +1,34 @@
+//- /*
+//- ============================================
+//- ; Title: Exercise 5.3 Pug Template
+//- ; Author: Professor Krasso 
+//- ; Date Modified: 12 September 2021
+//- ; Modified By: William Talley
+//- ; Description: Exercise is to learn 
+//- ;and practice using Pug templates in Express.
+//- ;this code should render a Bootstrap nav bar, a couple of div's, a h2 header and 
+//- ;render our message from our .js file into the paragraph tag location.
+//- ;===========================================
+//- */ 
+
+
+html 
+    head 
+        title WEB340 Exercise 5.3 Pug Template
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+        body 
+        nav.navbar.navbar-dark.bg-dark.navbar-expand-sm
+            ul.navbar-nav
+                li.nav-item
+                    a.nav-link(href='#') Home
+                li.nav-item 
+                    a.nav-link(href='#') About 
+                li.nav-item 
+                    a.nav-link(href='#') Contact Us
+        br
+        br
+        .container 
+            .row 
+                div.col-md-12
+                    h2 WEB340- Exercise 5.3: Pug Templates
+                    p.alert.alert-success= message
