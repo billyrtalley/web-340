@@ -1,0 +1,10 @@
+{
+    "name": "mongoose-connection",
+    "author": "William Talley",
+    "private": true,
+    "dependencies": {
+        "express": "^4.17.1",
+        "mongoose": "^6.0.6",
+        "morgan": "^1.10.0"
+    }
+}
