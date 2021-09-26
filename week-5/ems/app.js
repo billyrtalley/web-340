@@ -9,14 +9,43 @@
 ; set up Morgan to log messages and activity, setup the root directory view,
 ; the css folder and set up and port and console log a message when app is started
 ; and listening on the specified port
+;
+; Title: Exercise 7.4 EMS
+; Author: Professor Krasso 
+; Date Modified: 25 September 2021
+; Modified By: William Talley
+; Description: Javascript to EMS; modified the original app.js file to
+; include the mongoose connection code and Employee model.
 ;===========================================
 */ 
 
-//declaration: require statements for libraries: express,  morgan, http object
+//declaration: require statements for libraries: express,  morgan, http object, and the mongoose connection and models folder
 var express = require("express");
 var http = require("http");
 var path = require("path");
 var logger = require("morgan");
+var mongoose = require("mongoose");
+var Employee = require("./models/employee");
+const { once } = require("events");
+
+//set up the connection string
+var mongoDB = 'mongodb+srv://billyrtalley:TRIumph2014@buwebdev-cluster-1.wmilj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+
+//connect to the database
+mongoose.connect(mongoDB, { 
+    useMongoClient: true,
+});
+
+mongoose.Promise = global.Promise;
+
+var db = mongoose.connection;
+//set up an error message
+db.on("error", console.error.bind(console, "MongoDB connection error: "));
+
+//set up a message that shows the connection was successful
+db.once ("open", function() {
+    console.log("Application connection to MongoDB Atlas instance");
+});
 
 // assignment: variable app assigned to express
 var app = express();
@@ -27,6 +56,12 @@ app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
 //add the logger; this will allow us to see message in the terminal window 
 app.use(logger('short'));
+
+//add variable for employee
+var employee = new Employee({
+    firstName: "Billy",
+    lastName: "Talley"
+});
 
 //route for root directory
 app.get("/", function (request, response) {
