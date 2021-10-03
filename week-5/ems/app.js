@@ -16,15 +16,24 @@
 ; Modified By: William Talley
 ; Description: Javascript to EMS; modified the original app.js file to
 ; include the mongoose connection code and Employee model.
+
+; Title: Exercise 8.2 Cross Site Scripting
+; Author: Professor Krasso 
+; Date Modified: 3 October 2021
+; Modified By: William Talley
+; Description: Exercise is designed to practice installing helmet to our ems application
+; to protect against cross-site scripting
 ;===========================================
 */ 
 
 //declaration: require statements for libraries: express,  morgan, http object, and the mongoose connection and models folder
+//week 8 add require statement for helmet
 var express = require("express");
 var http = require("http");
 var path = require("path");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+var helmet = require("helmet");
 var Employee = require("./models/employee");
 const { once } = require("events");
 
@@ -54,8 +63,15 @@ var app = express();
 app.set("views", path.resolve(__dirname, "views"));
 //tells express we are using ejs as the view engine
 app.set("view engine", "ejs");
+
 //add the logger; this will allow us to see message in the terminal window 
 app.use(logger('short'));
+
+// week 8- add a use statement for helmet
+app.use(helmet.xssFilter());
+
+
+
 
 //add variable for employee
 var employee = new Employee({
@@ -64,9 +80,11 @@ var employee = new Employee({
 });
 
 //route for root directory
+//week 8- http calls for helmet 
 app.get("/", function (request, response) {
     response.render("index", {
-        title: "Home page"
+        title: "Home page",
+        message: "XSS prevention example"
     });
 });
 
