@@ -47,8 +47,8 @@ var bodyParser = require("body-parser");
 var cookieParser = require("cookie-parser");
 var csrf = require("csurf");
 var Employee = require("./models/employee");
-const { once } = require("events");
-const { urlencoded } = require("body-parser");
+// const { once } = require("events");
+// const { urlencoded } = require("body-parser");
 
 //set up the connection string
 var mongoDB = 'mongodb+srv://billyrtalley:TRIumph2014@buwebdev-cluster-1.wmilj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
@@ -88,7 +88,7 @@ app.use(helmet.xssFilter());
 
 //week 8 (8.3) use statements for body-parser, cookie-parser and csurf
 app.use (
-    bodyParser, urlencoded({
+    bodyParser.urlencoded({
         extended: true,
     })  
 );
@@ -97,7 +97,7 @@ app.use(cookieParser());
 app.use(csrfProtection);
 app.use(function (request, response, next) { 
     var token = request.csrfToken();
-    response.cookie("XSRF-Token", token);
+    response.cookie("XSRF-TOKEN", token);
     response.locals.csrfToken = token;
     next();
 });
@@ -135,8 +135,8 @@ app.post("/process", function (request, response) {
 //set folder for the css style
 app.use(express.static(__dirname + "/css"));
 
-//create the server, assign a port (8081), set up a message
+//create the server, assign a port (8080), set up a message
 //that let us know the application started on port 8081
-http.createServer(app).listen(8081, function() {
-    console.log('Application has started and listening on port 8081')
+http.createServer(app).listen(8080, function() {
+    console.log('Application has started and listening on port 8080')
 });
