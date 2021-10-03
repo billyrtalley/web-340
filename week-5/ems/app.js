@@ -57,13 +57,15 @@ var Employee = require("./models/employee");
 // const { once } = require("events");
 // const { urlencoded } = require("body-parser");
 
-//set up the connection string
-var mongoDB = 'mongodb+srv://billyrtalley:TRIumph2014@buwebdev-cluster-1.wmilj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+//set up the connection stringy
+// var mongoDB = 'mongodb+srv://billyrtalley:TRIumph2014@buwebdev-cluster-1.wmilj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
-//connect to the database
-mongoose.connect(mongoDB, { 
-    useMongoClient: true,
-});
+// //connect to the database
+// mongoose.connect(mongoDB, { 
+//     useMongoClient: true,
+// });
+
+mongoose.connect('mongodb+srv://billyrtalley:TRIumph2014@buwebdev-cluster-1.wmilj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 
 mongoose.Promise = global.Promise;
 
@@ -166,7 +168,7 @@ app.post("/process", function (request, response) {
         console.log(employeeName + " save successful");
     });
 
-    response.redirect("/list");
+    response.redirect("/");
 });
 
 //set folder for the css style
