@@ -132,6 +132,19 @@ app.get("/new", function (request, response) {
     });
 });
 
+//add the routing for /list
+
+app.get("/list", function (request, response) { 
+    Employee.find({}, function (error, employees) {
+        if (error) throw error;
+
+        response.render("list", {
+            title: "Employee Names",
+            employees: employees,
+        });
+    });
+});
+
 //week 8(8.3) add new routing for exercise 8.3
 //updated with status 400 for exercise 8.4
 app.post("/process", function (request, response) { 
