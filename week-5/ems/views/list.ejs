@@ -1,0 +1,42 @@
+<!-- ;===========================================
+; Title: Exercise 8.4 EMS Milestone 4 MongoDB Integration
+; Author: Professor Krasso 
+; Date Modified: 3 October 2021
+; Modified By: William Talley
+; Description: add view for the employee list 
+; Source: Mongoose Find All Example
+; Author: Professor Krasso Bellevue University
+; URL: http://content.bellevue.edu/cst/WEB/WEB340/Mongoose%20Example.pdf
+; Date Modified: 3 October 2021
+; Modified By: William Talley
+;=========================================== -->
+
+<%- include('header.ejs') -%>
+<%- include('navbar.ejs') -%>
+
+<div role="main" class="container">
+    <% if(employees.length) { %>
+        <h2>-- Employee Listing --</h2><br>
+        <a href="/new">Add New Employee</a>
+        <table class="table table-hover">
+            <thead class="thead-success">
+                <tr>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% employees.forEach(function (entry) { %>
+                <tr>
+                    <td><%= entry.name %></td>
+                </tr>
+            </tbody>
+            <% }) %>
+        </table>
+        <% } else { %>
+        No entries! <a href="/new">Add Name</a>
+        <% } %>
+</div>
+
+
+<%- include('scripts.ejs') -%>
+<%- include('footer.ejs') -%>

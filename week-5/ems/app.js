@@ -31,6 +31,13 @@
 ; Description: Exercise is designed to practice protecting against
 ; cross site request forgery. The objective is to create a random CSRF token every time the
 ; user is asked for data and to validate the random token every time i deal with the data
+;
+; Title: Exercise 8.4 EMS Milestone 4 Mongodb Integration
+; Author: Professor Krasso 
+; Date Modified: 3 October 2021
+; Modified By: William Talley
+; Description: Exercise is designed to practice employing Mongoose query API
+; to view employee records in the ems app
 ;===========================================
 */ 
 
@@ -126,10 +133,27 @@ app.get("/new", function (request, response) {
 });
 
 //week 8(8.3) add new routing for exercise 8.3
-
+//updated with status 400 for exercise 8.4
 app.post("/process", function (request, response) { 
-    console.log(request.body.txtName);
-    response.redirect("/");
+    //from 8.3 console.log(request.body.txtName);
+    if(!request.body.txtName) {
+        response.status(400).send("All entries require a name");
+        return;
+    }
+//Exercise 8.4 get the form data
+    var employeeName = request.body.txtName;
+    console.log(employeeName);
+
+    var employee = new Employee({ 
+        name: employeeName,
+    });
+//Exercise 8.4 save the data  
+    employee.save(function (error) { 
+        if (error) throw error;
+        console.log(employeeName + " save successful");
+    });
+
+    response.redirect("/list");
 });
 
 //set folder for the css style
@@ -138,5 +162,5 @@ app.use(express.static(__dirname + "/css"));
 //create the server, assign a port (8080), set up a message
 //that let us know the application started on port 8081
 http.createServer(app).listen(8080, function() {
-    console.log('Application has started and listening on port 8080')
+    console.log('Application has started and listening on port 8080');
 });
