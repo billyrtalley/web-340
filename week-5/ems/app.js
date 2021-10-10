@@ -104,7 +104,7 @@ var app = express();
 app.set("views", path.resolve(__dirname, "views"));
 //tells express we are using ejs as the view engine
 app.set("view engine", "ejs");
-
+app.set("port", process.env.PORT || 8080);
 //add the logger; this will allow us to see message in the terminal window 
 app.use(logger('short'));
 
@@ -209,6 +209,6 @@ app.use(express.static(__dirname + "/css"));
 
 //create the server, assign a port (8080), set up a message
 //that let us know the application started on port 8081
-http.createServer(app).listen(8080, function() {
-    console.log('Application has started and listening on port 8080');
+http.createServer(app).listen(app.get("port"), function() {
+    console.log('Application has started and listening on port ' + app.get("port"));
 });
