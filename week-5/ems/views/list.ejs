@@ -9,25 +9,42 @@
 ; URL: http://content.bellevue.edu/cst/WEB/WEB340/Mongoose%20Example.pdf
 ; Date Modified: 3 October 2021
 ; Modified By: William Talley
-;=========================================== -->
+ /*
+============================================
+; Title: Exercise 9.2 EMS Milestone 5: Finalize MongoDB Integrations
+; Author: Professor Krasso 
+; Date Modified: 25 September 2021
+; Modified By: William Talley
+; Description: Updated list.ejs 
+;===========================================
+*/  -->
+
 
 <%- include('header.ejs') -%>
 <%- include('navbar.ejs') -%>
 
-<div role="main" class="container">
+<div role="main" class="container" style="width: 50%;">
+    <br />
+    <br />
+
     <% if(employees.length) { %>
         <h2>-- Employee Listing --</h2><br>
         <a href="/new">Add New Employee</a>
+        <br />
+        <br />
+        <br />
         <table class="table table-hover">
             <thead class="thead-success">
                 <tr>
                     <th>Name</th>
+                    <th>Functions</th>
                 </tr>
             </thead>
             <tbody>
                 <% employees.forEach(function (entry) { %>
                 <tr>
                     <td><%= entry.name %></td>
+                    <td><a href="/view/<%= entry.name %>">View</a></td>
                 </tr>
             </tbody>
             <% }) %>

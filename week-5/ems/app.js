@@ -38,6 +38,18 @@
 ; Modified By: William Talley
 ; Description: Exercise is designed to practice employing Mongoose query API
 ; to view employee records in the ems app
+;Title: The options [useMongoClient] is not supported
+;Source: Stack Overflow, Akib Sadmanee 
+;Date: 2 January 2018
+; Description: installed new version of MongoDB and didn't know how to uninstall. Source for connecting to new MongoDB
+; instructions
+;
+; Title: Exercise 9.2 EMS Milestone 5: Finalize MongoDB Integrations
+; Author: Professor Krasso 
+; Date Modified: 9-10 October 2021
+; Modified By: William Talley
+; Description: In this exercise, we add a GET request to the view.ejs page 
+; in order to be able to query Mongo for select records
 ;===========================================
 */ 
 
@@ -64,6 +76,10 @@ var Employee = require("./models/employee");
 // mongoose.connect(mongoDB, { 
 //     useMongoClient: true,
 // });
+
+
+//installed new version of MongoDB and didnt know how to uninstall. Source for connecting to new MongoDB
+// instructions: https://stackoverflow.com/questions/48031029/the-options-usemongoclient-is-not-supported
 
 mongoose.connect('mongodb+srv://billyrtalley:TRIumph2014@buwebdev-cluster-1.wmilj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 
@@ -168,8 +184,25 @@ app.post("/process", function (request, response) {
         console.log(employeeName + " save successful");
     });
 
-    response.redirect("/");
+    response.redirect("/list");
 });
+
+// Exercise 9.2: updated route for  /view
+app.get("/view/:queryName", function (request, response) {
+    var queryName = request.params.queryName;
+    Employee.find({ name: queryName }, function (error, employees) {
+      if (error) throw error;
+      console.log(employees);
+      if (employees.length > 0) {
+        response.render("view", {
+          title: "Employee Record",
+          employee: employees,
+        });
+      } else {
+        response.redirect("/list");
+      }
+    });
+  });
 
 //set folder for the css style
 app.use(express.static(__dirname + "/css"));
